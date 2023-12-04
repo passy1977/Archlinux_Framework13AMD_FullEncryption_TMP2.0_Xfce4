@@ -9,7 +9,6 @@
 	- [Format EFI partiton](#format-efi-partiton)
 	- [Encrypt and format root partiton](#encrypt-and-format-root-partiton)
 	- [Encrypt and format home partiton](#encrypt-and-format-home-partiton)
-	- [Encrypt and format home partiton](#encrypt-and-format-home-partiton)
 	- [Mount partitions](mount-partitions)
 	- [Update mirror list](update-mirror-list)
 	- [Install system base](install-system-base)
