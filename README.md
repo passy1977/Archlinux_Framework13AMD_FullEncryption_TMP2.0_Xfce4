@@ -118,7 +118,7 @@ With the following sequence of characters we will obtain the desired partitionin
 ```sh
 mkfs.fat -F32 -n EFI /dev/vda1
 ```
-### Encrypt and format home partiton
+### Encrypt and format root partiton
 ```sh
 cryptsetup luksFormat -h sha256 /dev/nvme0n1p2
 or
