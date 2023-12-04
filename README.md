@@ -65,7 +65,7 @@ Boot up [Arch Linux ISO](https://archlinux.org/download/) and do the following:
 
 ## Boot by usb stick
 
-###Load keyboard map
+### Load keyboard map
 ```sh
 loadkeys it
 ```
@@ -478,11 +478,11 @@ Add this row after #%PAM-1.0
 pacman -S base-devel cmake git gdb
 ```
 
-##Install laptop feaures references
+## Install laptop feaures references
 * (https://wiki.archlinux.org/title/laptop)
 * (https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate)
 
-##Framerowk configuration references
+## Framerowk configuration references
 * (https://community.frame.work/t/arch-linux-on-the-framework-laptop/3843)
 * (https://wiki.archlinux.org/title/Framework_Laptop_13#Graphics)
 
