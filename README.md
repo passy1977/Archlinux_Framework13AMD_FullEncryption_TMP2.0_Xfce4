@@ -161,7 +161,7 @@ vim /etc/hosts
 ```
 example set:
 	127.0.0.1	localhost
-	127.0.1.1	XXXX-linux.salsi.local	XXXX-linux
+	127.0.1.1	XXXX-linux.local	XXXX-linux
 
 #### Install and set networking
 ```sh
