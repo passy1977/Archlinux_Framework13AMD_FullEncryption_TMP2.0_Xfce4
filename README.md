@@ -174,8 +174,8 @@ systemctl enable NetworkManager dhcpcd
 pacman -S mc
 vim /etc/profile.d/editor.sh
 ```
-set:
-	EDITOR=/usr/bin/mcedit
+set:  
+	EDITOR=/usr/bin/mcedit  
 
 #### Configure HOOKS for initramfs
 ```sh
