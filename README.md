@@ -35,10 +35,10 @@ ping archlinux.org
 ```
 
 ### Disk partitioning
-I keep /home dir in separate partition and i would like set the disk like this:
-1 EFI   512Mb
-2 /	 	100Gb
-3 /home 850Gb
+I keep /home dir in separate partition and i would like set the disk like this:  
+1 EFI   512Mb  
+2 /	100Gb  
+3 /home 850Gb  
 
 ```sh
 fdisk /dev/nvme0n1
