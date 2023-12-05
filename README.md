@@ -11,6 +11,9 @@
 Boot up [Arch Linux ISO](https://archlinux.org/download/) and do the following:
 * Device connected by ethernet interface
 
+## Configuration file
+All configuration file modified are in src folder
+
 ## Boot by usb stick
 
 ### Load keyboard map
