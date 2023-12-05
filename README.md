@@ -23,7 +23,7 @@
 		- [Set hostname](set-hostname)
 		- [Set hosts](set-hosts)
 		- [Install and set networking](install-and-set-networking)
-		- [Install and set midnight Commander (otional)](Set midnight Commander)
+		- [Install and set Midnight Commander](set-midnight-mommander)
 		- [Configure HOOKS for initramfs](configure-hooks-for-initramfs)
 		- [Install AMD microcode](install-amd-microcode)
 		- [Create initramfs](create-initramfs)
@@ -220,6 +220,7 @@ pacman -S dhcpcd wpa_supplicant networkmanager
 systemctl enable NetworkManager dhcpcd
 ```
 #### Install and set Midnight Commander
+(Optional)
 ```sh
 pacman -S mc
 vim /etc/profile.d/editor.sh
