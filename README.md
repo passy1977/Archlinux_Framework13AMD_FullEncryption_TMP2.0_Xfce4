@@ -1,11 +1,10 @@
 # Arch linux + Framework 13 AMD 7040 + Full-Disk Encryption + TMP2.0 + Xfce4 
 
 ## Hardware
-
-* **Framework 13 
-  * AMD Ryzen 7 AMD Ryzen 7 7840
-  * 16GB RAM
-  * 1T SSD
+* Framework 13 
+* AMD Ryzen 7 AMD Ryzen 7 7840
+* 16GB RAM
+* 1T SSD
 
 ## Preparation
 
@@ -440,3 +439,6 @@ pacman -S base-devel cmake git gdb
 * (https://gist.github.com/orhun/02102b3af3acfdaf9a5a2164bea7c3d6)
 * (https://wiki.archlinux.org/title/dm-crypt/Encrypting_an_entire_system#Simple_encrypted_root_with_TPM2_and_Secure_Boot)
 * (https://wiki.archlinux.org/title/dm-crypt/Device_encryption)
+
+## A big thank to Orhun
+A big thank you to [orhun](https://gist.github.com/orhun) who thanks to his [guide](https://gist.github.com/orhun/02102b3af3acfdaf9a5a2164bea7c3d6) gave me inspiration for this
