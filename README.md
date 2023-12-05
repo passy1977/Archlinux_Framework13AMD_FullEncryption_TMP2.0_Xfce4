@@ -333,15 +333,15 @@ Set DNS Multicast in Name Service Switch congihuration file
 ```sh
 vim /etc/nsswitch.conf
 ```
-Edit hosts key like this:
+Edit hosts key like this:  
 	hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dnsloadk   
 
 Add user to sudoers
 ```sh
 vim /etc/sudoers.d/johndoe
 ```
-Insert the follow row:
-	johndoe	ALL=(ALL:ALL) ALL
+Insert the follow row:  
+	johndoe	ALL=(ALL:ALL) ALL  
 
 ```sh
 vim /boot/loader/entries/arch.conf
@@ -368,13 +368,12 @@ dd if=/dev/zero of=/swap.img bs=1024k count=16000
 mkswap /swap.img
 swapon /swap.img
 ```
-
 Update fstab  
 ```sh
 vim /etc/fstab
 ```
-Append this:
-	/swap.img none            swap    sw              0       0
+Append this:  
+	/swap.img none            swap    sw              0       0  
 ```sh
 systemctl daemon-reload
 ```
@@ -411,9 +410,9 @@ timeshift --create --snapshot 'clean-distr' --snapshot-device /dev/sda1
 ```sh
 vim /etc/udev/rules.d/99-lowbat.rules
 ```
-Add this:
-	#Suspend the system when battery level drop to 5% or lower
-	SUBSTYSTEM=="power_supply", ATTR{status}="Discharging", ATTR{capacity}="[0-5]", RUN="/run/bin/systemctl hibernate"
+Add this:  
+	#Suspend the system when battery level drop to 5% or lower  
+	SUBSTYSTEM=="power_supply", ATTR{status}="Discharging", ATTR{capacity}="[0-5]", RUN="/run/bin/systemctl hibernate"  
 
 #### Install XFCE4
 ```sh
@@ -425,8 +424,8 @@ pacman -Rs xfburn xfce4-notes-plugin parole xfce4-dict
 ```sh
 /etc/lightdm/lightdm.conf
 ```
-Add under [Seat:*]
-	greeter-session=lightdm-gtk-greeter
+Add under [Seat:*]  
+	greeter-session=lightdm-gtk-greeter  
 
 #### Install Bluez
 ```sh
@@ -460,18 +459,18 @@ reboot
 ```sh
 vim /etc/pam.d/lightdm
 ```
-Add this row after #%PAM-1.0
-	#%PAM-1.0
-	auth      sufficient pam_fprintd.so
-	...
+Add this row after #%PAM-1.0  
+	#%PAM-1.0  
+	auth      sufficient pam_fprintd.so  
+	...  
 
 ```sh
 /etc/pam.d/sudo
 ```
-Add this row after #%PAM-1.0
-	#%PAM-1.0
-	auth      	sufficient pam_fprintd.so
-	...
+Add this row after #%PAM-1.0  
+	#%PAM-1.0  
+	auth      	sufficient pam_fprintd.so  
+	...  
 
 #### Add developer base tools
 ```sh
