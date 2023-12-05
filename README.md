@@ -332,7 +332,7 @@ Optimize full ram utilization
 vim  /etc/sysctl.d/swap.conf 
 ```
 Add:
-	vm.swappiness=0
+	vm.swappiness=20
 
 #### Set tpm2
 Check if tpm2 has been detected
@@ -406,20 +406,16 @@ reboot
 ```
 #### Update login with fingerprint
 ```sh
-vim /etc/pam.d/lightdm
+vim /etc/pam.d/system-login
+vim /etc/pam.d/xfce4-screensaver
+vim /etc/pam.d/system-auth
 ```
-Add this row after #%PAM-1.0  
-	#%PAM-1.0  
+Add this in the first position may must be placed after #%PAM-1.0:
+	...
 	auth      sufficient pam_fprintd.so  
 	...  
 
 ```sh
-/etc/pam.d/sudo
-```
-Add this row after #%PAM-1.0  
-	#%PAM-1.0  
-	auth      	sufficient pam_fprintd.so  
-	...  
 
 #### Add developer base tools
 ```sh
