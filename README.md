@@ -182,7 +182,7 @@ set:
 vim /etc/mkinitcpio.conf 
 ```
 insert the follow config:  
-HOOKS=(systemd autodetect modconf kms keyboard sd-vconsole block sd-encrypt filesystems fsck)  
+HOOKS=(systemd autodetect modconf kms keyboard sd-vconsole block sd-encrypt filesystems resume fsck)  
 > [!WARNING]  
 > Maintain the right module sequengce
 
@@ -322,7 +322,7 @@ Update fstab
 vim /etc/fstab
 ```
 Append this:  
-	/swap.img none            swap    sw              0       0  
+	/swap.img	none swap defaults 0 0 
 ```sh
 systemctl daemon-reload
 ```
