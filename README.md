@@ -426,6 +426,12 @@ Add this row after #%PAM-1.0
 pacman -S base-devel cmake git gdb
 ```
 
+###### Secure boot
+TODO
+
+###### Configuration PPD
+TODO
+
 ## Install laptop feaures references
 * (https://wiki.archlinux.org/title/laptop)
 * (https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate)
