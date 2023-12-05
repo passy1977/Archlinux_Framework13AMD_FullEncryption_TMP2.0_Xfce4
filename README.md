@@ -430,7 +430,11 @@ pacman -S base-devel cmake git gdb
 TODO
 
 ###### Configuration PPD
-TODO
+```sh
+pacman -S power-profiles-daemon
+systemctl start power-profiles-daemon.service
+systemctl enable power-profiles-daemon.service
+```
 
 ## Install laptop feaures references
 * (https://wiki.archlinux.org/title/laptop)
