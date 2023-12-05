@@ -429,7 +429,7 @@ pacman -S base-devel cmake git gdb
 ###### Secure boot
 TODO
 
-###### Configuration PPD
+#### Configuration PPD
 ```sh
 pacman -S power-profiles-daemon
 systemctl start power-profiles-daemon.service
