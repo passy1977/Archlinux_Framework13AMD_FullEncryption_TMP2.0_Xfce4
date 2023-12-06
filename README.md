@@ -62,8 +62,11 @@ With the following sequence of characters we will obtain the desired partitionin
  - Partition number: <enter>
  - First sector: <enter>
  - Last sector ...: <enter>
- - Command: p (check if )
+ - Command: p (check if all partition have a right dimensioning)
  - Command: w
+
+> [!WARNING]  
+> The first partition must be EFI type
 
 ### Format EFI partiton
 ```sh
