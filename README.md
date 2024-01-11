@@ -416,19 +416,18 @@ vim /etc/pam.d/system-login
 vim /etc/pam.d/xfce4-screensaver
 vim /etc/pam.d/system-auth
 ```
-Add this in the first position may must be placed after #%PAM-1.0:
-	...
-	auth      sufficient pam_fprintd.so  
-	...  
+Add this in the first position may must be placed after #%PAM-1.0:  
+...  
+auth      sufficient pam_fprintd.so  
+...  
 
-```sh
 
 #### Add developer base tools
 ```sh
 pacman -S base-devel cmake git gdb
 ```
 
-###### Secure boot
+##### Secure boot
 TODO
 
 #### Configuration PPD
