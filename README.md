@@ -89,7 +89,7 @@ or
 cryptsetup luksFormat --type luks1 --use-random -S 1 -s 512 -h sha512 -i 5000 /dev/nvme0n1p3
 cryptsetup luksHeaderBackup /dev/nvme0n1p3 --header-backup-file /root/home-header-backup.img
 cryptsetup open /dev/nvme0n1p3 home
-mkfs.ext4 -L system /dev/mapper/home
+mkfs.ext4 -L home /dev/mapper/home
 ```
 
 ### Mount partitions
@@ -453,3 +453,6 @@ systemctl enable power-profiles-daemon.service
 
 ## A big thank to Orhun
 A big thank you to [orhun](https://gist.github.com/orhun) who thanks to his [guide](https://gist.github.com/orhun/02102b3af3acfdaf9a5a2164bea7c3d6) gave me inspiration for this
+
+## Thanks to fix 
+* [trail744](https://community.frame.work/t/guide-my-procedure-for-installing-arch-linux-xfce-on-amd-framework-13/41451/7)
