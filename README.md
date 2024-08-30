@@ -347,8 +347,8 @@ systemd-cryptenroll --tpm2-device=list
 ```
 then
 ```sh
-systemd-cryptenroll --tpm2-device=auto /dev/nvme0n1p2
-systemd-cryptenroll --tpm2-device=auto /dev/nvme0n1p3
+sudo systemd-cryptenroll --wipe-slot tpm2 --tpm2-device auto --tpm2-pcrs "1+7" /dev/nvme0n1p2
+sudo systemd-cryptenroll --wipe-slot tpm2 --tpm2-device auto --tpm2-pcrs "1+7" /dev/nvme0n1p3
 ```
 
 #### Enable Timeshift
