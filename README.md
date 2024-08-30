@@ -371,7 +371,7 @@ Add this:
 
 #### Install XFCE4
 ```sh
-pacman --needed -S xorg-server xorg-xinit xterm xf86-video-amdgpu xfce4 xfce4-goodies xarchiver network-manager-applet lightdm lightdm-gtk-greeter alsa-utils pulseaudio pavucontrol dbus xdg-desktop-portal-xapp xdg-user-dirs xdg-dbus-proxy xdg-utils man-db man-pages catfish gvfs 
+pacman --needed -S xorg-server xorg-xinit xterm xf86-video-amdgpu xfce4 xfce4-goodies xarchiver network-manager-applet lightdm lightdm-gtk-greeter alsa-utils pulseaudio pavucontrol dbus xdg-desktop-portal-xapp xdg-desktop-portal-gtk xdg-user-dirs xdg-dbus-proxy xdg-utils man-db man-pages catfish gvfs 
 pacman -Rs xfburn xfce4-notes-plugin parole xfce4-dict
 ```
 
