@@ -4,7 +4,7 @@
 * Framework 13 
 * AMD Ryzen 7 AMD Ryzen 7 7840
 * 16GB RAM
-* 1T SSD
+* 1Tb SSD
 
 ## Preparation
 
