@@ -361,13 +361,11 @@ Attach external drive and create snapshot
 timeshift --create --snapshot 'clean-distr' --snapshot-device /dev/sda1
 ```
 
-#### Set suspension on low battery
-```sh
-vim /etc/udev/rules.d/99-lowbat.rules
-```
-Add this:  
-	#Suspend the system when battery level drop to 5% or lower  
-	SUBSTYSTEM=="power_supply", ATTR{status}="Discharging", ATTR{capacity}="[0-5]", RUN="/run/bin/systemctl hibernate"  
+#### ~~Set suspension on low battery~~
+~~vim /etc/udev/rules.d/99-lowbat.rules~~
+~~Add this:~~  
+	~~#Suspend the system when battery level drop to 5% or lower~~  
+	~~SUBSTYSTEM=="power_supply", ATTR{status}="Discharging", ATTR{capacity}="[0-5]", RUN="/run/bin/systemctl hibernate"~~  
 
 #### Install XFCE4
 ```sh
