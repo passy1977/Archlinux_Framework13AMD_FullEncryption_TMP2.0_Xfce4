@@ -101,14 +101,14 @@ mount LABEL=EFI /mnt/boot
 mount LABEL=home /mnt/home
 ```
 
-### Update mirror list
-```sh
-reflector -c it > /etc/pacman.d/mirrorlist
-```
-
 ### Install system base
 ```sh
 pacstrap /mnt base linux linux-firmware 
+```
+
+### Update mirror list
+```sh
+reflector -c it > /etc/pacman.d/mirrorlist
 ```
 
 ### Populate fstab 
@@ -171,7 +171,7 @@ example set:
 
 #### Install and set networking
 ```sh
-pacman -S dhcpcd wpa_supplicant networkmanager
+pacman -S wpa_supplicant networkmanager
 systemctl enable NetworkManager dhcpcd
 ```
 #### Install and set Midnight Commander
