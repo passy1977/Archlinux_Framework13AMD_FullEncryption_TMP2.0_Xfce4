@@ -347,8 +347,25 @@ systemd-cryptenroll --tpm2-device=list
 ```
 then
 ```sh
-sudo systemd-cryptenroll --wipe-slot tpm2 --tpm2-device auto --tpm2-pcrs "1+7" /dev/nvme0n1p2
-sudo systemd-cryptenroll --wipe-slot tpm2 --tpm2-device auto --tpm2-pcrs "1+7" /dev/nvme0n1p3
+systemd-cryptenroll --wipe-slot tpm2 --tpm2-device auto --tpm2-pcrs "1+7" /dev/nvme0n1p2
+systemd-cryptenroll --wipe-slot tpm2 --tpm2-device auto --tpm2-pcrs "1+7" /dev/nvme0n1p3
+```
+#### Enable FSTrim
+(optional) for SSD Optimization
+```sh
+systemctl enable --now fstrim.timer
+```
+then edit
+```sh
+vim /boot/loader/entries/arch.conf
+```
+Add:  
+	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system amdgpu.sg_display=0 acpi_osi="!Windows 2000" rw splash **rd.luks.options=discard**  
+
+#### For saving some SSD cycles
+```sh
+pacman -S profile-sync-daemon
+systemctl --user enable psd --now
 ```
 
 #### Enable Timeshift
@@ -370,7 +387,7 @@ timeshift --create --snapshot 'clean-distr' --snapshot-device /dev/sda1
 #### Install XFCE4
 ```sh
 pacman --needed -S xorg-server xorg-xinit xterm xf86-video-amdgpu xfce4 xfce4-goodies xarchiver network-manager-applet lightdm lightdm-gtk-greeter alsa-utils pulseaudio pavucontrol dbus xdg-desktop-portal-xapp xdg-desktop-portal-gtk xdg-user-dirs xdg-dbus-proxy xdg-utils man-db man-pages catfish gvfs 
-pacman -Rs xfburn xfce4-notes-plugin parole xfce4-dict
+pacman -Rncsu xfburn xfce4-notes-plugin parole xfce4-dict
 ```
 
 #### Configure LightDM
@@ -408,6 +425,7 @@ This operation will return an error as reported in the link but eventually the f
 ```sh
 reboot
 ```
+
 #### Update login with fingerprint
 ```sh
 vim /etc/pam.d/system-login
@@ -418,7 +436,6 @@ Add this in the first position may must be placed after #%PAM-1.0:
 ...  
 auth      sufficient pam_fprintd.so  
 ...  
-
 
 #### Add developer base tools
 ```sh
