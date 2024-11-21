@@ -433,9 +433,9 @@ vim /etc/pam.d/xfce4-screensaver
 vim /etc/pam.d/system-auth
 ```
 Add this in the first position may must be placed after #%PAM-1.0:  
-...  
+```sh
 auth      sufficient pam_fprintd.so  
-...  
+```
 
 #### Add developer base tools
 ```sh
