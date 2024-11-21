@@ -339,6 +339,53 @@ vim  /etc/sysctl.d/swap.conf
 ```
 Add:
 	vm.swappiness=20
+ 	vm.page-cluster=0
+
+#### Enable zram
+(optional)
+```sh
+vim /etc/modules-load.d/zram.conf
+```
+Add:
+	zram  
+
+```sh
+ vim /etc/fstab
+```
+Add:
+	...
+	dev/zram0 none swap defaults,pri=100 0 0
+ 
+```sh
+vim  /etc/sysctl.d/99-zram.rules
+```
+Add:
+	ACTION=="add", KERNEL=="zram0", ATTR{comp_algorithm}="zstd", ATTR{disksize}="4G", RUN="/usr/bin/mkswap -U clear /dev/%k", TAG+="systemd"  
+ 
+### Enable PNIN (old if name like ETH0)
+(optional)
+```sh
+vim /boot/loader/entries/arch.conf
+```
+Update the follow config:  
+	options rd.luks.name= ... __net.ifnames=0__  
+
+```sh
+vim /boot/loader/entries/arch-fallback.conf
+```
+Update the follow config:  
+	options rd.luks.name= ... __net.ifnames=0__  
+
+#### Enable mounf filesystem in /media/VolumeName
+```sh
+vim  /etc/sysctl.d/99-udisk2.rules
+```
+Add:
+	# UDISKS_FILESYSTEM_SHARED
+	# ==1: mount filesystem to a shared directory (/media/VolumeName)
+	# ==0: mount filesystem to a private directory (/run/media/$USER/VolumeName)
+	# See udisks(8)
+	ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="1"
 
 #### Set tpm2
 Check if tpm2 has been detected
@@ -360,7 +407,7 @@ then edit
 vim /boot/loader/entries/arch.conf
 ```
 Add:  
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system amdgpu.sg_display=0 acpi_osi="!Windows 2000" rw splash **rd.luks.options=discard**  
+	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system amdgpu.sg_display=0 acpi_osi="!Windows 2000" rw splash __rd.luks.options=discard__  
 
 #### For saving some SSD cycles
 ```sh
