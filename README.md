@@ -165,10 +165,10 @@ exaple set:
 ```sh
 vim /etc/hosts
 ```
-example set:
-	127.0.0.1	localhost
-	127.0.1.1	XXXX-linux.local	XXXX-linux
-
+example set:  
+	127.0.0.1	localhost  
+	127.0.1.1	XXXX-linux.local	XXXX-linux  
+ 
 #### Install and set networking
 ```sh
 pacman -S wpa_supplicant networkmanager
