@@ -70,7 +70,7 @@ With the following sequence of characters we will obtain the desired partitionin
 
 ### Format EFI partiton
 ```sh
-mkfs.fat -F32 -n EFI /dev/vda1
+mkfs.fat -F32 -n EFI /dev/nvme0n1
 ```
 ### Encrypt and format root partiton
 ```sh
