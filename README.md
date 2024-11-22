@@ -270,7 +270,7 @@ timedatectl set-ntp 1
 
 #### Add user
 ```sh
-useradd -m wheel -G johndoe
+useradd -m wheel,storage -G johndoe
 passwd johndoe
 ```
 
