@@ -103,7 +103,7 @@ mount LABEL=home /mnt/home
 
 ### Install system base
 ```sh
-pacstrap /mnt base linux linux-firmware 
+pacstrap /mnt base linux linux-firmware vim
 ```
 
 ### Update mirror list
