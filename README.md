@@ -172,7 +172,7 @@ example set:
 #### Install and set networking
 ```sh
 pacman -S wpa_supplicant networkmanager
-systemctl enable NetworkManager dhcpcd
+systemctl enable NetworkManager
 ```
 #### Install and set Midnight Commander
 (Optional)
