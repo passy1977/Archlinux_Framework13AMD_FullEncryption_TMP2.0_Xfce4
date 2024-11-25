@@ -381,12 +381,12 @@ Update the follow config:
 ```sh
 vim  /etc/sysctl.d/99-udisk2.rules
 ```
-Add:
-	# UDISKS_FILESYSTEM_SHARED
-	# ==1: mount filesystem to a shared directory (/media/VolumeName)
-	# ==0: mount filesystem to a private directory (/run/media/$USER/VolumeName)
-	# See udisks(8)
-	ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="1"
+Add:  
+	# UDISKS_FILESYSTEM_SHARED  
+	# ==1: mount filesystem to a shared directory (/media/VolumeName)  
+	# ==0: mount filesystem to a private directory (/run/media/$USER/VolumeName)  
+	# See udisks(8)  
+	ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="1"  
 
 #### Set tpm2
 Check if tpm2 has been detected
