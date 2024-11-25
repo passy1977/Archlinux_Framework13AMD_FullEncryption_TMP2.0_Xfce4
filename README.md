@@ -317,11 +317,12 @@ Update the follow config:
 
 #### Enable swap 
 ```sh
-touch /swap.img
-chmod 600 /swap.img
-dd if=/dev/zero of=/swap.img bs=1024k count=16000
-mkswap /swap.img
-swapon /swap.img
+#touch /var/swap.img
+#chmod 600 /var/swap.img
+fallocate -l 16G /var/swap.img
+#swapoff /dev/mapper/server--vg-swap_1
+#mkswap /var/swap.img
+#swapon /var/swap.img
 ```
 Update fstab  
 ```sh
