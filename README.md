@@ -363,7 +363,7 @@ vim  /etc/sysctl.d/99-zram.rules
 Add:
 	ACTION=="add", KERNEL=="zram0", ATTR{comp_algorithm}="zstd", ATTR{disksize}="4G", RUN="/usr/bin/mkswap -U clear /dev/%k", TAG+="systemd"  
  
-### Enable PNIN (old if name like ETH0)
+#### Enable PNIN (old if name like ETH0)
 (optional)
 ```sh
 vim /boot/loader/entries/arch.conf
