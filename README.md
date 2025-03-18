@@ -226,7 +226,7 @@ insert the follow config:
 	linux /vmlinuz-linux  
 	initrd /[CPU-ARCHITECTURE]-ucode.img  
 	initrd /initramfs-linux.img  
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system amdgpu.sg_display=0 acpi_osi="!Windows 2000" rw splash  
+	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system acpi_osi="!Windows 2000" nvme.noacpi=1 rw splash  
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
 
@@ -239,7 +239,7 @@ insert the follow config:
 	linux /vmlinuz-linux  
 	initrd /<CPU-ARCHITECTURE>-ucode.img  
 	initrd /initramfs-linux.img  
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system amdgpu.sg_display=0 acpi_osi="!Windows 2000" rw splash  
+	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system acpi_osi="!Windows 2000" nvme.noacpi=1 rw splash  
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
 
