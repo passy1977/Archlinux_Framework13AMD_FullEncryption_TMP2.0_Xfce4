@@ -142,7 +142,7 @@ exaple uncomment:
 ```sh
 locale-gen
 ```
-#### Set locale's envirorment
+#### Set locale envirorment
 ```
 vim /etc/locale.conf
 ```
