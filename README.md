@@ -131,11 +131,6 @@ arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/Europe/Rome /etc/localtime
 ```
 
-#### Set the RTC from the system time
-```sh
-hwclock --systohc
-```
-
 #### Uncomment desired locales
 ```sh
 vim /etc/locale.gen
@@ -146,6 +141,17 @@ exaple uncomment:
 #### Generate the locales
 ```sh
 locale-gen
+```
+#### Set locale's envirorment
+```
+vim /etc/locale.conf
+```
+exaple: 
+	LANG="en_GB.UTF-8"
+
+#### Set the RTC from the system time
+```sh
+hwclock --systohc
 ```
 
 #### Set terminal keyboard map 
