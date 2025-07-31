@@ -135,7 +135,7 @@ ln -sf /usr/share/zoneinfo/Europe/Rome /etc/localtime
 ```sh
 vim /etc/locale.gen
 ```
-exaple uncomment: 
+exaple uncomment:  
 	en_GB.UTF-8 UTF-8
 
 #### Generate the locales
@@ -146,7 +146,7 @@ locale-gen
 ```
 vim /etc/locale.conf
 ```
-exaple: 
+exaple:  
 	LANG="en_GB.UTF-8"  
 	LANGUAGE="en_GB.UTF-8"  
 	LC_ALL="en_GB.UTF-8"  
@@ -299,7 +299,7 @@ Set DNS Multicast in Name Service Switch congihuration file
 vim /etc/nsswitch.conf
 ```
 Edit hosts key like this:  
-	hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dnsloadk   
+	hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dnsloadk  
 
 Add user to sudoers
 ```sh
