@@ -147,12 +147,11 @@ locale-gen
 vim /etc/locale.conf
 ```
 exaple: 
-	LANG="en_GB.UTF-8"
-	LANGUAGE="en_GB.UTF-8"
-	LC_ALL="en_GB.UTF-8"
-	LC_COLLATE="C.UTF-8"
-	LC_CTYPE="C.UTF-8"
-
+	LANG="en_GB.UTF-8"  
+	LANGUAGE="en_GB.UTF-8"  
+	LC_ALL="en_GB.UTF-8"  
+	LC_COLLATE="C.UTF-8"  
+	LC_CTYPE="C.UTF-8"  
 
 #### Set the RTC from the system time
 ```sh
