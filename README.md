@@ -312,7 +312,7 @@ Insert the follow row:
 vim /boot/loader/entries/arch.conf
 ```
 Update the follow config:  
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system amdgpu.sg_display=0 acpi_osi="!Windows 2000" __lsm=landlock,lockdown,yama,integrity,apparmor,bpf__ rw splash  
+	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system ~~amdgpu.sg_display=0~~ acpi_osi="!Windows 2000" __lsm=landlock,lockdown,yama,integrity,apparmor,bpf__ rw splash  
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
 
@@ -320,19 +320,19 @@ Update the follow config:
 vim /boot/loader/entries/arch-fallback.conf
 ```
 Update the follow config:  
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system amdgpu.sg_display=0 acpi_osi="!Windows 2000" __lsm=landlock,lockdown,yama,integrity,apparmor,bpf__ rw splash  
+	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system ~~amdgpu.sg_display=0~~ acpi_osi="!Windows 2000" __lsm=landlock,lockdown,yama,integrity,apparmor,bpf__ rw splash  
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
 
 
 #### Enable swap 
+~~touch /var/swap.img~~  
+~~chmod 600 /var/swap.img~~  
+~~swapoff /dev/mapper/server--vg-swap_1~~  
+~~mkswap /var/swap.img~~  
+~~swapon /var/swap.img~~  
 ```sh
-#touch /var/swap.img
-#chmod 600 /var/swap.img
 fallocate -l 16G /var/swap.img
-#swapoff /dev/mapper/server--vg-swap_1
-#mkswap /var/swap.img
-#swapon /var/swap.img
 ```
 Update fstab  
 ```sh
@@ -418,7 +418,7 @@ then edit
 vim /boot/loader/entries/arch.conf
 ```
 Add:  
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system amdgpu.sg_display=0 acpi_osi="!Windows 2000" rw splash __rd.luks.options=discard__  
+	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system ~~amdgpu.sg_display=0~~ acpi_osi="!Windows 2000" rw splash __rd.luks.options=discard__  
 
 #### For saving some SSD cycles
 ```sh
