@@ -312,7 +312,7 @@ Insert the follow row:
 vim /boot/loader/entries/arch.conf
 ```
 Update the follow config:  
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system ~~amdgpu.sg_display=0~~ acpi_osi="!Windows 2000" __lsm=landlock,lockdown,yama,integrity,apparmor,bpf__ rw splash  
+	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system amdgpu.sg_display=0 acpi_osi="!Windows 2000" __lsm=landlock,lockdown,yama,integrity,apparmor,bpf__ rw splash  
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
 
@@ -320,7 +320,7 @@ Update the follow config:
 vim /boot/loader/entries/arch-fallback.conf
 ```
 Update the follow config:  
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system ~~amdgpu.sg_display=0~~ acpi_osi="!Windows 2000" __lsm=landlock,lockdown,yama,integrity,apparmor,bpf__ rw splash  
+	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system amdgpu.sg_display=0 acpi_osi="!Windows 2000" __lsm=landlock,lockdown,yama,integrity,apparmor,bpf__ rw splash  
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
 
