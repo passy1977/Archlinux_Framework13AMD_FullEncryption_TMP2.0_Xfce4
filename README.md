@@ -5,6 +5,7 @@
 * AMD Ryzen 7 AMD Ryzen 7 7840
 * 16GB RAM
 * 1Tb SSD
+* Dongle usb-c with ETH
 
 ## Preparation
 
@@ -64,6 +65,12 @@ With the following sequence of characters we will obtain the desired partitionin
  - Last sector ...: <enter>
  - Command: p (check if all partition have a right dimensioning)
  - Command: w
+
+to set the first EFI partition when fdisk is still open:   
+ - t
+ - 1
+ - 1
+ - w
 
 > [!WARNING]  
 > The first partition must be EFI type
