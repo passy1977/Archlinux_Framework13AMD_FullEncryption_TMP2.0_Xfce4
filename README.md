@@ -115,7 +115,7 @@ pacstrap /mnt base linux linux-firmware vim
 
 ### Update mirror list
 ```sh
-reflector -c it > /etc/pacman.d/mirrorlist
+reflector -c it > /mnt/etc/pacman.d/mirrorlist
 ```
 
 ### Populate fstab 
