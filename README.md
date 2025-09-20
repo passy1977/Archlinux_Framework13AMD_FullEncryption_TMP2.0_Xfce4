@@ -241,7 +241,7 @@ vim /boot/loader/entries/arch.conf
 insert the follow config:  
 	title Arch Linux  
 	linux /vmlinuz-linux  
-	initrd /[CPU-ARCHITECTURE]-ucode.img  
+	initrd /amd-ucode.img  
 	initrd /initramfs-linux.img  
 	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system acpi_osi="!Windows 2000" nvme.noacpi=1 rw splash  
 > [!WARNING]  
