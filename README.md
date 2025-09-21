@@ -428,6 +428,13 @@ vim /boot/loader/entries/arch.conf
 Add:  
 	options rd.luks.name=</dev/disk/by-uuid>=system ... __rd.luks.options=discard__  
 
+and edit
+```sh
+vim /boot/loader/entries/arch-fallback.conf
+```
+Add:  
+	options rd.luks.name=</dev/disk/by-uuid>=system ... __rd.luks.options=discard__  
+
 #### For saving some SSD cycles
 ```sh
 pacman -S profile-sync-daemon
@@ -450,10 +457,9 @@ timeshift --create --snapshot 'clean-distr' --snapshot-device /dev/sda1
 	~~#Suspend the system when battery level drop to 5% or lower~~  
 	~~SUBSTYSTEM=="power_supply", ATTR{status}="Discharging", ATTR{capacity}="[0-5]", RUN="/run/bin/systemctl hibernate"~~  
 
-#### Install XFCE4
+#### Install XFCE4 (only DE)
 ```sh
-pacman --needed -S xorg-server xorg-xinit xterm xf86-video-amdgpu xfce4 xfce4-goodies xarchiver network-manager-applet lightdm lightdm-gtk-greeter alsa-utils pulseaudio pavucontrol dbus xdg-dbus-proxy xdg-desktop-portal xdg-desktop-portal-gtk xdg-user-dirs xdg-utils ls man-db man-pages catfish gvfs 
-pacman -Rncsu xfburn xfce4-notes-plugin parole xfce4-dict
+pacman -S xorg-server xorg-xinit xterm xf86-video-amdgpu xarchiver network-manager-applet lightdm lightdm-gtk-greeter alsa-utils pulseaudio pavucontrol dbus xdg-dbus-proxy xdg-desktop-portal xdg-desktop-portal-gtk xdg-user-dirs xdg-utils ls man-db man-pages catfish gvfs xfce4-appfinder xfce4-battery-plugin xfce4-notifyd xfce4-panel xfce4-power-manager xfce4-pulseaudio-plugin xfce4-screensaver xfce4-screenshooter xfce4-session xfce4-settings xfce4-smartbookmark-plugin xfce4-systemload-plugin xfce4-terminal xfce4-timer-plugin xfce4-whiskermenu-plugin  
 ```
 
 #### Configure LightDM
