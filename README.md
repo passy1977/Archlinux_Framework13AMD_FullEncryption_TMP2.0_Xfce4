@@ -243,7 +243,8 @@ insert the follow config:
 	linux /vmlinuz-linux  
 	initrd /amd-ucode.img  
 	initrd /initramfs-linux.img  
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system acpi_osi="!Windows 2000" nvme.noacpi=1 rw splash  
+	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system lsm=landlock,lockdown,yama,intergrity,apparmor,bpf acpi_osi="!Windows 2000" amdgpu.sg_display=0 nowatchdog rw splash net.ifnames=0 rd.luks.options=discard
+
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
 
@@ -255,8 +256,8 @@ insert the follow config:
 	title Arch Linux  
 	linux /vmlinuz-linux  
 	initrd /<CPU-ARCHITECTURE>-ucode.img  
-	initrd /initramfs-linux.img  
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system acpi_osi="!Windows 2000" nvme.noacpi=1 rw splash  
+	initrd /initramfs-linux-fallback.img
+	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system lsm=landlock,lockdown,yama,intergrity,apparmor,bpf acpi_osi="!Windows 2000" amdgpu.sg_display=0 nowatchdog rw splash net.ifnames=0 rd.luks.options=discard  
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
 
