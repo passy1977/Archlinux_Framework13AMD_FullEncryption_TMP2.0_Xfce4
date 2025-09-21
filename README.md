@@ -419,6 +419,7 @@ systemd-cryptenroll --wipe-slot tpm2 --tpm2-device auto --tpm2-pcrs "1+7" /dev/n
 #### Enable FSTrim
 (optional) for SSD Optimization
 ```sh
+pacman -S fstrim
 systemctl enable --now fstrim.timer
 ```
 then edit
@@ -439,6 +440,12 @@ Add:
 ```sh
 pacman -S profile-sync-daemon
 systemctl --user enable psd --now
+```
+
+#### For check hd status
+```sh
+pacman -S smartmontools
+systemctl --user enable smartd --now
 ```
 
 #### Enable Timeshift
