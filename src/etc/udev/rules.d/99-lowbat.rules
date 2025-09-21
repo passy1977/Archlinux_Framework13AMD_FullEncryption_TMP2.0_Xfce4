@@ -1,3 +1,0 @@
-#Suspend the system when battery level drop to 5% or lower
-SUBSTYSTEM=="power_supply", ATTR{status}="Discharging", ATTR{capacity}="[0-5]", RUN="/run/bin/systemctl hibernate"
-

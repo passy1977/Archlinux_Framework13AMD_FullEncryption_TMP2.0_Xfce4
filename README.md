@@ -231,7 +231,7 @@ vim /boot/loader/loader.conf
 insert the follow config:  
 	default arch*.conf  
 	timeout 5  
-	editor yes  
+	editor false  
 	console-mode auto  
 
 #### Config systemd-boot deafult entry

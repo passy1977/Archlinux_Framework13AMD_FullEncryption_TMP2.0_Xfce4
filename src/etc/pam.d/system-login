@@ -1,5 +1,4 @@
 #%PAM-1.0
-
 auth       sufficient pam_fprintd.so
 auth       required   pam_shells.so
 auth       requisite  pam_nologin.so
