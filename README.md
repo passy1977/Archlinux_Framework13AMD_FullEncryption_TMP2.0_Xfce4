@@ -243,7 +243,7 @@ insert the follow config:
 	linux /vmlinuz-linux  
 	initrd /amd-ucode.img  
 	initrd /initramfs-linux.img  
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system lsm=landlock,lockdown,yama,intergrity,apparmor,bpf acpi_osi="!Windows 2000" amdgpu.sg_display=0 nowatchdog rw splash net.ifnames=0 rd.luks.options=discard
+	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system acpi_osi="!Windows 2000" amdgpu.sg_display=0 nowatchdog rw splash
 
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
@@ -257,7 +257,7 @@ insert the follow config:
 	linux /vmlinuz-linux  
 	initrd /amd-ucode.img  
 	initrd /initramfs-linux-fallback.img
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system lsm=landlock,lockdown,yama,intergrity,apparmor,bpf acpi_osi="!Windows 2000" amdgpu.sg_display=0 nowatchdog rw splash net.ifnames=0 rd.luks.options=discard  
+	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system acpi_osi="!Windows 2000" amdgpu.sg_display=0 nowatchdog rw splash   
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
 
@@ -320,7 +320,7 @@ Insert the follow row:
 vim /boot/loader/entries/arch.conf
 ```
 Update the follow config:  
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system amdgpu.sg_display=0 acpi_osi="!Windows 2000" __lsm=landlock,lockdown,yama,integrity,apparmor,bpf__ rw splash  
+	options rd.luks.name=</dev/disk/by-uuid>=system ... __lsm=landlock,lockdown,yama,intergrity,apparmor,bpf__ rw splash  
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
 
@@ -328,7 +328,7 @@ Update the follow config:
 vim /boot/loader/entries/arch-fallback.conf
 ```
 Update the follow config:  
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system amdgpu.sg_display=0 acpi_osi="!Windows 2000" __lsm=landlock,lockdown,yama,integrity,apparmor,bpf__ rw splash  
+	options rd.luks.name=</dev/disk/by-uuid>=system ...  __lsm=landlock,lockdown,yama,intergrity,apparmor,bpf__ rw splash  
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
 
@@ -426,7 +426,7 @@ then edit
 vim /boot/loader/entries/arch.conf
 ```
 Add:  
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system ~~amdgpu.sg_display=0~~ acpi_osi="!Windows 2000" rw splash __rd.luks.options=discard__  
+	options rd.luks.name=</dev/disk/by-uuid>=system ... __rd.luks.options=discard__  
 
 #### For saving some SSD cycles
 ```sh
