@@ -243,7 +243,7 @@ insert the follow config:
 	linux /vmlinuz-linux  
 	initrd /amd-ucode.img  
 	initrd /initramfs-linux.img  
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system acpi_osi="!Windows 2000" amdgpu.sg_display=0 nowatchdog rw splash
+	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system acpi_osi="!Windows 2000" amdgpu.sg_display=0 nowatchdog rw
 
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
@@ -257,7 +257,7 @@ insert the follow config:
 	linux /vmlinuz-linux  
 	initrd /amd-ucode.img  
 	initrd /initramfs-linux-fallback.img
-	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system acpi_osi="!Windows 2000" amdgpu.sg_display=0 nowatchdog rw splash   
+	options rd.luks.name=</dev/disk/by-uuid>=system rd.luks.name=</dev/disk/by-uuid>=home root=/dev/mapper/system acpi_osi="!Windows 2000" amdgpu.sg_display=0 nowatchdog rw   
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
 
@@ -320,7 +320,7 @@ Insert the follow row:
 vim /boot/loader/entries/arch.conf
 ```
 Update the follow config:  
-	options rd.luks.name=</dev/disk/by-uuid>=system ... __lsm=landlock,lockdown,yama,intergrity,apparmor,bpf__ rw splash  
+	options rd.luks.name=</dev/disk/by-uuid>=system ... __lsm=landlock,lockdown,yama,intergrity,apparmor,bpf__ rw  
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
 
@@ -328,7 +328,7 @@ Update the follow config:
 vim /boot/loader/entries/arch-fallback.conf
 ```
 Update the follow config:  
-	options rd.luks.name=</dev/disk/by-uuid>=system ...  __lsm=landlock,lockdown,yama,intergrity,apparmor,bpf__ rw splash  
+	options rd.luks.name=</dev/disk/by-uuid>=system ...  __lsm=landlock,lockdown,yama,intergrity,apparmor,bpf__ rw  
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
 
