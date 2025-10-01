@@ -450,7 +450,7 @@ systemctl --user enable smartd --now
 
 #### Enable systemd-oom 
 ```sh
-sudo EDITOR=/usr/bin/mcedit systemctl edit user@service
+EDITOR=/usr/bin/mcedit systemctl edit user@service
 ```
 Add:  
 	[Service]  
@@ -458,14 +458,14 @@ Add:
 	ManagedOOMMemoryPressureLimit=50%  
 
 ```sh
-sudo EDITOR=/usr/bin/mcedit systemctl edit user.slice
+EDITOR=/usr/bin/mcedit systemctl edit user.slice
 ```
 Add:  
 	[Slice]  
 	ManagedOOMSwap=kill  
 
 ```sh
-sudo mcedit /etc/systemd/system.conf
+mcedit /etc/systemd/system.conf
 ```
 Add:  
 	[Manager]  
@@ -475,13 +475,14 @@ Add:
 	DefaultTasksAccounting=yes  
 
 ```sh
-sudo mcedit /etc/systemd/oomd.conf
+mcedit /etc/systemd/oomd.conf
 ```
 Add:  
 	SwapUsedLimitPercent=90%  
 	DefaultMemoryPressureDurationSec=20s  
 
 ```sh
+systemctl enable --now systemd-oomd
 systemctl daemon-reload
 ```
 
