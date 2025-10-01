@@ -26,7 +26,7 @@ loadkeys it
 ```sh
 ip addr
 ```
-the command should return
+The command should return
 ```
 2: enp195s0f3u1u4: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
     link/ether XX:XX:XX:XX:XX:XX brd ff:ff:ff:ff:ff:ff
@@ -66,7 +66,7 @@ With the following sequence of characters we will obtain the desired partitionin
  - Command: p (check if all partition have a right dimensioning)
  - Command: w
 
-to set the first EFI partition when fdisk is still open:   
+To set the first EFI partition when fdisk is still open:   
  - t
  - 1
  - 1
@@ -142,7 +142,7 @@ ln -sf /usr/share/zoneinfo/Europe/Rome /etc/localtime
 ```sh
 vim /etc/locale.gen
 ```
-exaple uncomment:  
+Exaple uncomment:  
 	en_GB.UTF-8 UTF-8
 
 #### Generate the locales
@@ -153,7 +153,7 @@ locale-gen
 ```
 vim /etc/locale.conf
 ```
-exaple:  
+Exaple:  
 	LANG="en_GB.UTF-8"  
 	LANGUAGE="en_GB.UTF-8"  
 	LC_ALL="en_GB.UTF-8"  
@@ -169,20 +169,20 @@ hwclock --systohc
 ```sh
 vim /etc/vconsole.conf
 ```
-exaple set: KEYMAP=it
+Exaple set: KEYMAP=it
 
 #### Set hostname
 ```sh
 vim /etc/hostname
 ```
-exaple set: 
+Exaple set: 
 	XXXX-linux
 
 #### Set hosts
 ```sh
 vim /etc/hosts
 ```
-example set:  
+Example set:  
 	127.0.0.1	localhost  
 	127.0.1.1	XXXX-linux.local	XXXX-linux  
  
@@ -197,14 +197,14 @@ systemctl enable NetworkManager
 pacman -S mc
 vim /etc/profile.d/editor.sh
 ```
-set:  
+Set:  
 	EDITOR=/usr/bin/mcedit  
 
 #### Configure HOOKS for initramfs
 ```sh
 vim /etc/mkinitcpio.conf 
 ```
-insert the follow config:  
+Insert the follow config:  
 HOOKS=(systemd autodetect modconf kms keyboard sd-vconsole block sd-encrypt filesystems resume fsck)  
 > [!WARNING]  
 > Maintain the right module sequengce
@@ -228,7 +228,7 @@ bootctl install
 ```sh
 vim /boot/loader/loader.conf
 ```
-insert the follow config:  
+Insert the follow config:  
 	default arch*.conf  
 	timeout 5  
 	editor false  
@@ -238,7 +238,7 @@ insert the follow config:
 ```sh
 vim /boot/loader/entries/arch.conf
 ```
-insert the follow config:  
+Insert the follow config:  
 	title Arch Linux  
 	linux /vmlinuz-linux  
 	initrd /amd-ucode.img  
@@ -252,7 +252,7 @@ insert the follow config:
 ```sh
 vim /boot/loader/entries/arch-fallback.conf
 ```
-insert the follow config:  
+Insert the follow config:  
 	title Arch Linux  
 	linux /vmlinuz-linux  
 	initrd /amd-ucode.img  
@@ -448,6 +448,43 @@ pacman -S smartmontools
 systemctl --user enable smartd --now
 ```
 
+#### Enable systemd-oom 
+```sh
+sudo EDITOR=/usr/bin/mcedit systemctl edit user@service
+```
+Add:  
+	[Service]  
+	ManagedOOMMemoryPressure=kill  
+	ManagedOOMMemoryPressureLimit=50%  
+
+```sh
+sudo EDITOR=/usr/bin/mcedit systemctl edit user.slice
+```
+Add:  
+	[Slice]  
+	ManagedOOMSwap=kill  
+
+```sh
+sudo mcedit /etc/systemd/system.conf
+```
+Add:  
+	[Manager]  
+	DefaultCPUAccounting=yes  
+	DefaultIOAccounting=yes  
+	DefaultMemoryAccounting=yes  
+	DefaultTasksAccounting=yes  
+
+```sh
+sudo mcedit /etc/systemd/oomd.conf
+```
+Add:  
+	SwapUsedLimitPercent=90%  
+	DefaultMemoryPressureDurationSec=20s  
+
+```sh
+systemctl daemon-reload
+```
+
 #### Enable Timeshift
 (optional)
 ```sh
@@ -521,8 +558,8 @@ auth      sufficient pam_fprintd.so
 pacman -S base-devel cmake git gdb
 ```
 
-##### Secure boot
-TODO
+##### ~~Secure boot~~
+~~TODO~~
 
 #### Configuration PPD
 ```sh
