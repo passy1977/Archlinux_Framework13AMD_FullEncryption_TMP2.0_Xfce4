@@ -478,7 +478,7 @@ Add:
 mcedit /etc/systemd/oomd.conf
 ```
 Add:  
-	SwapUsedLimitPercent=90%  
+	SwapUsedLimit=90%  
 	DefaultMemoryPressureDurationSec=20s  
 
 ```sh
