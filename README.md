@@ -361,7 +361,7 @@ Add:
  	vm.page-cluster=0
 
 #### Enable zram
-(optional)
+(Optional)
 ```sh
 vim /etc/modules-load.d/zram.conf
 ```
@@ -382,7 +382,7 @@ Add:
 	ACTION=="add", KERNEL=="zram0", ATTR{comp_algorithm}="lz4", ATTR{disksize}="4G", RUN="/usr/bin/mkswap -U clear /dev/%k", TAG+="systemd"  
  
 #### Enable PNIN (old if name like ETH0)
-(optional)
+(Optional)
 ```sh
 vim /boot/loader/entries/arch.conf
 ```
@@ -417,7 +417,7 @@ systemd-cryptenroll --wipe-slot tpm2 --tpm2-device auto --tpm2-pcrs "1+7" /dev/n
 systemd-cryptenroll --wipe-slot tpm2 --tpm2-device auto --tpm2-pcrs "1+7" /dev/nvme0n1p3
 ```
 #### Enable FSTrim
-(optional) for SSD Optimization
+(Optional) for SSD Optimization
 ```sh
 pacman -S fstrim
 systemctl enable --now fstrim.timer
@@ -449,6 +449,7 @@ systemctl --user enable smartd --now
 ```
 
 #### Enable systemd-oom 
+(Optional)
 ```sh
 EDITOR=/usr/bin/mcedit systemctl edit user@service
 ```
@@ -486,8 +487,13 @@ systemctl enable --now systemd-oomd
 systemctl daemon-reload
 ```
 
+#### Add MOFT (Message Of The Day)
+```sh
+echo "Hi you are logged" > /etc/motd
+```
+
 #### Enable Timeshift
-(optional)
+(Optional)
 ```sh
 pacman -S timeshift
 ```
