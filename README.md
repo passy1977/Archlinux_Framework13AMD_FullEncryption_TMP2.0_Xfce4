@@ -453,7 +453,7 @@ Addppend:
 	/dev/zram0 none swap defaults,pri=100 0 0  
  
 ```sh
-vim  /etc/sysctl.d/99-zram.rules
+vim  /etc/udev/rules.d/99-zram.rules
 ```
 Add:  
 	ACTION=="add", KERNEL=="zram0", ATTR{comp_algorithm}="lz4", ATTR{disksize}="4G", RUN="/usr/bin/mkswap -U clear /dev/%k", TAG+="systemd"  
