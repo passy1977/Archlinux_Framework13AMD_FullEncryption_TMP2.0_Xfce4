@@ -332,54 +332,6 @@ Update the follow config:
 > [!WARNING]  
 > Substitute this </dev/disk/by-uuid> with right uuid partition identifier
 
-
-#### Enable swap 
-~~touch /var/swap.img~~  
-~~chmod 600 /var/swap.img~~  
-~~swapoff /dev/mapper/server--vg-swap_1~~  
-~~mkswap /var/swap.img~~  
-~~swapon /var/swap.img~~  
-```sh
-fallocate -l 16G /var/swap.img
-```
-Update fstab  
-```sh
-vim /etc/fstab
-```
-Append this:  
-	/swap.img	none swap defaults 0 0 
-```sh
-systemctl daemon-reload
-```
-
-Optimize full ram utilization
-```sh
-vim  /etc/sysctl.d/swap.conf 
-```
-Add:
-	vm.swappiness=20
- 	vm.page-cluster=0
-
-#### Enable zram
-(Optional)
-```sh
-vim /etc/modules-load.d/zram.conf
-```
-Add:
-	zram  
-
-```sh
- vim /etc/fstab
-```
-Add:
-	...
-	dev/zram0 none swap defaults,pri=100 0 0
- 
-```sh
-vim  /etc/sysctl.d/99-zram.rules
-```
-Add:  
-	ACTION=="add", KERNEL=="zram0", ATTR{comp_algorithm}="lz4", ATTR{disksize}="4G", RUN="/usr/bin/mkswap -U clear /dev/%k", TAG+="systemd"  
  
 #### Enable PNIN (old if name like ETH0)
 (Optional)
@@ -416,38 +368,6 @@ then
 systemd-cryptenroll --wipe-slot tpm2 --tpm2-device auto --tpm2-pcrs "1+7" /dev/nvme0n1p2
 systemd-cryptenroll --wipe-slot tpm2 --tpm2-device auto --tpm2-pcrs "1+7" /dev/nvme0n1p3
 ```
-#### Enable FSTrim
-(Optional) for SSD Optimization
-```sh
-pacman -S fstrim
-systemctl enable --now fstrim.timer
-```
-then edit
-```sh
-vim /boot/loader/entries/arch.conf
-```
-Add:  
-	options rd.luks.name=</dev/disk/by-uuid>=system ... __rd.luks.options=discard__  
-
-and edit
-```sh
-vim /boot/loader/entries/arch-fallback.conf
-```
-Add:  
-	options rd.luks.name=</dev/disk/by-uuid>=system ... __rd.luks.options=discard__  
-
-#### For saving some SSD cycles
-```sh
-pacman -S profile-sync-daemon
-systemctl --user enable psd --now
-```
-
-#### For check hd status
-```sh
-pacman -S smartmontools
-systemctl --user enable smartd --now
-```
-
 #### Enable systemd-oom 
 (Optional)
 ```sh
@@ -485,6 +405,89 @@ Add:
 ```sh
 systemctl enable --now systemd-oomd
 systemctl daemon-reload
+```
+
+#### Enable swap 
+~~touch /var/swap.img~~  
+~~chmod 600 /var/swap.img~~  
+~~swapoff /dev/mapper/server--vg-swap_1~~  
+~~mkswap /var/swap.img~~  
+~~swapon /var/swap.img~~  
+```sh
+fallocate -l 16G /var/swap.img
+chmod 600 /var/swap.img
+swapoff /dev/mapper/server--vg-swap_1  
+mkswap /var/swap.img  
+swapon /var/swap.img
+```
+Update fstab  
+```sh
+vim /etc/fstab
+```
+Append this:  
+	/swap.img	none swap defaults 0 0 
+```sh
+systemctl daemon-reload
+```
+
+Optimize full ram utilization
+```sh
+vim  /etc/sysctl.d/swap.conf 
+```
+Add:  
+	vm.swappiness=20  
+ 	vm.page-cluster=0  
+
+#### Enable zram
+(Optional)
+```sh
+vim /etc/modules-load.d/zram.conf
+```
+Add:
+	zram  
+
+```sh
+ vim /etc/fstab
+```
+Addppend:  
+	/dev/zram0 none swap defaults,pri=100 0 0  
+ 
+```sh
+vim  /etc/sysctl.d/99-zram.rules
+```
+Add:  
+	ACTION=="add", KERNEL=="zram0", ATTR{comp_algorithm}="lz4", ATTR{disksize}="4G", RUN="/usr/bin/mkswap -U clear /dev/%k", TAG+="systemd"  
+
+#### Enable FSTrim
+(Optional) for SSD Optimization
+```sh
+pacman -S fstrim
+systemctl enable --now fstrim.timer
+```
+then edit
+```sh
+vim /boot/loader/entries/arch.conf
+```
+Add:  
+	options rd.luks.name=</dev/disk/by-uuid>=system ... __rd.luks.options=discard__  
+
+and edit
+```sh
+vim /boot/loader/entries/arch-fallback.conf
+```
+Add:  
+	options rd.luks.name=</dev/disk/by-uuid>=system ... __rd.luks.options=discard__  
+
+#### For saving some SSD cycles
+```sh
+pacman -S profile-sync-daemon
+systemctl --user enable psd --now
+```
+
+#### For check hd status
+```sh
+pacman -S smartmontools
+systemctl enable smartd --now
 ```
 
 #### Add MOFT (Message Of The Day)
