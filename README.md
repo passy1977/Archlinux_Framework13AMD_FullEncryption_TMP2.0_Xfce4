@@ -406,6 +406,11 @@ Add:
 systemctl enable --now systemd-oomd
 systemctl daemon-reload
 ```
+#### Enable gnome-keyring
+(optinal)
+```sh
+pacman -S gnome-keyring
+```
 
 #### Enable swap 
 ~~touch /var/swap.img~~  
